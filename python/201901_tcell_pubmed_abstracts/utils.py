@@ -5,6 +5,12 @@ import os.path as osp
 
 DATA_DIR = os.getenv('PUBMED_NLP_DATA_DIR', osp.expanduser('~/tmp/nlp/data'))
 
+def fix_jupyter_spacy_config():
+    # Work-around for https://github.com/explosion/spaCy/issues/3208
+    from IPython.core.getipython import get_ipython
+    ip = get_ipython()
+    ip.config['IPKernelApp']['parent_appname'] = 'notebook'
+    
 class Reader:
 
     def __init__(self, file_name):
