@@ -3,7 +3,7 @@ import re
 import os
 import os.path as osp
 
-DATA_DIR = os.getenv('PUBMED_NLP_DATA_DIR', osp.expanduser('~/tmp/nlp/data'))
+DATA_DIR = os.getenv('PUBMED_NLP_DATA_DIR', 'data')
 
 def fix_jupyter_spacy_config():
     # Work-around for https://github.com/explosion/spaCy/issues/3208
